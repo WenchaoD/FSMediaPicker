@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
 [![Platform](https://img.shields.io/cocoapods/p/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
 
-![fsmediapicker-edit](https://cloud.githubusercontent.com/assets/5186464/6525012/1544d590-c43b-11e4-8ed2-8cf8eef14009.gif)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![fsmediapicker-circular-edited](https://cloud.githubusercontent.com/assets/5186464/6524931/11bfd51a-c43a-11e4-8197-ced99a29df69.gif)
+![fsmediapicker-edit](https://cloud.githubusercontent.com/assets/5186464/6525012/1544d590-c43b-11e4-8ed2-8cf8eef14009.gif)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![fsmediapicker-circular-edited](https://cloud.githubusercontent.com/assets/5186464/6524931/11bfd51a-c43a-11e4-8197-ced99a29df69.gif)
 
 ## Purpose
 
