@@ -123,14 +123,14 @@ mediaPicker.mediaType = FSMediaTypeAll
 ### Some spices
 
 #### Circular crop
-
+```objective-c
 mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
 
 - (void)mediaPicker:(FSMediaPicker *)mediaPicker didFinishWithMediaInfo:(NSDictionary *)mediaInfo
 {
     imageView.image = mediaInfo.circularEditedImage; // Or mediaInfo[UIImagePickerControllerCircularEditedImage]
 }
-
+```
 #### Customized setting of UIImagePickerController:
 
 ```objective-c
