@@ -94,9 +94,10 @@ Why would I write such a long page just for a tiny little image?!
 
 FSMediaPicker can handle the all borthering part for you
 
+
 ## What's more
 
-### To Pick a video
+## To Pick a video
 
 ```objective-c
 mediaPicker.type = FSMediaTypeVideo // default is FSMediaTypePhoto
@@ -109,7 +110,7 @@ mediaPicker.type = FSMediaTypeVideo // default is FSMediaTypePhoto
 
 ![fsmediapicker-type-video](https://cloud.githubusercontent.com/assets/5186464/6525055/b20b75be-c43b-11e4-93eb-a0297157dd79.png)
 
-### To pick both image && video:
+## To pick both image && video:
 ```objective-c
 mediaPicker.mediaType = FSMediaTypeAll
 
@@ -124,9 +125,9 @@ mediaPicker.mediaType = FSMediaTypeAll
 
 ![fsmediapicker-type-all](https://cloud.githubusercontent.com/assets/5186464/6525058/bc2e6736-c43b-11e4-811c-5d3f3ba82e26.png)
 
-### Some spices
+## Some spices
 
-#### Circular crop
+### Circular crop
 ```objective-c
 mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
 
@@ -135,7 +136,7 @@ mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
     imageView.image = mediaInfo.circularEditedImage; // Or mediaInfo[UIImagePickerControllerCircularEditedImage]
 }
 ```
-#### Customized setting of UIImagePickerController:
+### Customized setting of UIImagePickerController:
 
 ```objective-c
 - (void)mediaPicker:(FSMediaPicker *)mediaPicker willPresentImagePickerController:(UIImagePickerController *)imagePicker
@@ -147,7 +148,7 @@ mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
 }
 ```
 
-#### When cancel
+### When cancel
 
 ```objective-c
 - (void)mediaPickerDidCancel:(FSMediaPicker *)mediaPicker
@@ -157,7 +158,7 @@ mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
 ```
 This delegate method will be called on either when the UIActionSheet cancel or when the UIImagePickerController cancel
 
-#### Block support
+### Block support
 
 ```objective-c
 @property (copy, nonatomic) void(^willPresentImagePickerBlock)(FSMediaPicker *mediaPicker, UIImagePickerController *imagePicker);
@@ -167,13 +168,14 @@ This delegate method will be called on either when the UIActionSheet cancel or w
 
 * The `mediaInfo` NSDictionary contains both the `editedImage` and the `circularEditedImage` no matter what the `editMode` is. This setting because some app just displays the circularImage but needs to save the rectangle image on device or the server
 
-#### 中文选项
+### 中文选项
 * 如果系统语言设置为中文并且Project下的Localization下包含`Chinese`，则选项中的文字显示为中文
 * 
 ![localization](https://cloud.githubusercontent.com/assets/5186464/6525144/dba46592-c43c-11e4-8115-d4f17e382d43.png)
 ![fsmediapicker-chinese](https://cloud.githubusercontent.com/assets/5186464/6525153/0de85dec-c43d-11e4-9b73-298bd2fa9b9a.png)
 
 * 如果觉得文字不够高大上，在FSMediaPicker.m中开头的几个macro中设置对应文字. 
+
 ```objective-c
 // change the option string here
 #define kTakePhotoString LocalizedString(@"Take photo")
@@ -191,6 +193,7 @@ This delegate method will be called on either when the UIActionSheet cancel or w
 * manually: drag all the classes and Resources under the `FSMediaPicker` group  
 
 ### then
+
 ```objective-c
 #import "FSMediaPicker.h"
 ```
