@@ -25,7 +25,11 @@
 
 - (void)pickButtonClicked:(id)sender
 {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take photo", @"Select photo from camera", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
+                                                            delegate:self 
+                                                            cancelButtonTitle:@"Cancel" 
+                                                            destructiveButtonTitle:nil 
+                                                            otherButtonTitles:@"Take photo", @"Select photo from camera", nil];
     actionSheet.cancelButtonIndex = 2;
     [actionSheet showInView:sender];
 }
