@@ -1,6 +1,5 @@
 # FSMediaPicker
 
-[![CI Status](http://img.shields.io/travis/Wenchao Ding/FSMediaPicke.svg?style=flat)](https://travis-ci.org/Wenchao Ding/FSMediaPicker)
 [![Version](https://img.shields.io/cocoapods/v/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
 [![License](https://img.shields.io/cocoapods/l/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
 [![Platform](https://img.shields.io/cocoapods/p/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
