@@ -90,7 +90,7 @@ FSMediaPicker can handle the all borthering part for you
 
 ## What's more
 
-### Pick a video
+### To Pick a video
 
 ```objective-c
 mediaPicker.type = FSMediaTypeVideo // default is FSMediaTypePhoto
@@ -101,7 +101,7 @@ mediaPicker.type = FSMediaTypeVideo // default is FSMediaTypePhoto
 }
 ```
 
-To pick all:
+### To pick both image && video:
 ```objective-c
 mediaEntry.mediaType = FSMediaTypeAll
 
