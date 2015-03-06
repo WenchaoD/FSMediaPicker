@@ -1,0 +1,13 @@
+/* 
+  FSMediaPicker.strings
+  Pods
+
+  Created by Wenchao Ding on 3/3/15.
+
+*/
+
+"Take photo" = "拍照";
+"Select photo from photo library" = "從本地獲取";
+"Record video" = "攝像機";
+"Select video from photo library" = "本地視頻";
+"Cancel" = "取消";

@@ -1,0 +1,12 @@
+/* 
+  FSMediaPicker.strings
+  Pods
+
+  Created by Wenchao Ding on 3/3/15.
+
+*/
+"Take photo" = "Take photo";
+"Select photo from photo library" = "Select photo from photo library";
+"Record video" = "Record video";
+"Select video from photo library" = "Select video from photo library";
+"Cancel" = "Cancel";

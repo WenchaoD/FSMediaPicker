@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FSViewController" sceneMemberID="viewController">
@@ -15,8 +16,68 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNP-3X-GUA">
+                                <rect key="frame" x="274" y="216" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.7725490196" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3NN-HK-6ir"/>
+                                    <constraint firstAttribute="width" constant="200" id="6aw-qz-E6y"/>
+                                </constraints>
+                                <state key="normal" title="Click to pick image">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tkN-Dk-rpN"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qc3-h0-oqN">
+                                <rect key="frame" x="240" y="63" width="288" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="S43-sF-Wy2"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Image"/>
+                                    <segment title="Video"/>
+                                    <segment title="Image&amp;Video"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UuA-Wh-ldw">
+                                <rect key="frame" x="258" y="132" width="232" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="aHw-oq-10m"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Normal Crop"/>
+                                    <segment title="Circular Crop"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-2v-4K6">
+                                <rect key="frame" x="214" y="458" width="320" height="185"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f1y-2v-4K6" firstAttribute="centerX" secondItem="qNP-3X-GUA" secondAttribute="centerX" id="5Xm-u8-5Vp"/>
+                            <constraint firstItem="qNP-3X-GUA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="274" id="B5E-Sh-7AB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f1y-2v-4K6" secondAttribute="bottom" constant="381" id="BBM-wr-jYC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qNP-3X-GUA" secondAttribute="bottom" constant="608" id="D1p-fP-99a"/>
+                            <constraint firstItem="Qc3-h0-oqN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="FEC-MR-uyE"/>
+                            <constraint firstItem="UuA-Wh-ldw" firstAttribute="top" secondItem="Qc3-h0-oqN" secondAttribute="bottom" constant="41" id="Ig1-bH-doh"/>
+                            <constraint firstItem="f1y-2v-4K6" firstAttribute="top" secondItem="qNP-3X-GUA" secondAttribute="bottom" constant="42" id="dej-li-Ftg"/>
+                            <constraint firstItem="f1y-2v-4K6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="214" id="lLi-bn-jbf"/>
+                            <constraint firstItem="Qc3-h0-oqN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ofD-mz-LQ0"/>
+                            <constraint firstItem="UuA-Wh-ldw" firstAttribute="centerX" secondItem="qNP-3X-GUA" secondAttribute="centerX" id="t7X-gw-6ig"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="editModeControl" destination="UuA-Wh-ldw" id="Lyz-iy-rZG"/>
+                        <outlet property="imageButton" destination="qNP-3X-GUA" id="cUz-jj-jMc"/>
+                        <outlet property="mediaTypeControl" destination="Qc3-h0-oqN" id="7oJ-D1-koU"/>
+                        <outlet property="movieContainer" destination="f1y-2v-4K6" id="dK9-jG-d7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

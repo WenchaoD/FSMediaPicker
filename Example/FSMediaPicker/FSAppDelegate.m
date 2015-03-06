@@ -2,7 +2,7 @@
 //  FSAppDelegate.m
 //  FSMediaPicker
 //
-//  Created by CocoaPods on 03/05/2015.
+//  Created by CocoaPods on 03/03/2015.
 //  Copyright (c) 2014 Wenchao Ding. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     return YES;
 }
 							
