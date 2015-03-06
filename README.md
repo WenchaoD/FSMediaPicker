@@ -111,9 +111,9 @@ mediaPicker.mediaType = FSMediaTypeAll
 
 - (void)mediaPicker:(FSMediaPicker *)mediaPicker didFinishWithMediaInfo:(NSDictionary *)mediaInfo
     if (mediaInfo.mediaType == FSMediaTypeVideo) { // Or [mediaInfo[UIImagePickerControllerMediaType] isEqualToString:(NSString)kUTTypeMovie];
-        NSURL *url = mediaInfo.mediaURL;
-    } else if (mediaInfo.mediaType == FSMediaTypePhoto) {
-        UIImage *someImage = mediaInfo.editedImage // or mediaInfo[UIImagePickerControllerEditedImage]
+        NSURL *url = mediaInfo.mediaURL; // Or mediaInfo[UIImagePickerControllerMediaURL]
+    } else if (mediaInfo.mediaType == FSMediaTypePhoto) { // Or [mediaInfo[UIImagePickerControllerMediaType] isEqualToString:(NSString)kUTTypeImage];
+        UIImage *someImage = mediaInfo.editedImage // Or mediaInfo[UIImagePickerControllerEditedImage]
     }
 }
 ```
