@@ -137,6 +137,9 @@ mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
     imageView.image = mediaInfo.circularEditedImage; // Or mediaInfo[UIImagePickerControllerCircularEditedImage]
 }
 ```
+
+* The `mediaInfo` NSDictionary contains both the `editedImage` and the `circularEditedImage` no matter what the `editMode` is. This setting because some app just displays the circularImage but needs to save the rectangle image on device or the server
+
 ### Customized setting of UIImagePickerController:
 
 ```objective-c
@@ -166,8 +169,6 @@ This delegate method will be called on either when the UIActionSheet cancel or w
 @property (copy, nonatomic) void(^finishBlock)(FSMediaPicker *mediaPicker, NSDictionary *mediaInfo);
 @property (copy, nonatomic) void(^cancelBlock)(FSMediaPicker *mediaPicker);
 ```
-
-* The `mediaInfo` NSDictionary contains both the `editedImage` and the `circularEditedImage` no matter what the `editMode` is. This setting because some app just displays the circularImage but needs to save the rectangle image on device or the server
 
 ### 中文选项
 * 如果系统语言设置为中文并且Project下的Localization下包含`Chinese`，则选项中的文字显示为中文
