@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
 [![Platform](https://img.shields.io/cocoapods/p/FSMediaPicker.svg?style=flat)](http://cocoadocs.org/docsets/FSMediaPicker)
 
+![fsmediapicker-edit](https://cloud.githubusercontent.com/assets/5186464/6525012/1544d590-c43b-11e4-8ed2-8cf8eef14009.gif)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![fsmediapicker-circular-edited](https://cloud.githubusercontent.com/assets/5186464/6524931/11bfd51a-c43a-11e4-8197-ced99a29df69.gif)
+
 ## Purpose
 
 ### How would we pick a image from device before
@@ -101,9 +103,11 @@ mediaPicker.type = FSMediaTypeVideo // default is FSMediaTypePhoto
 }
 ```
 
+![fsmediapicker-type-video](https://cloud.githubusercontent.com/assets/5186464/6525055/b20b75be-c43b-11e4-93eb-a0297157dd79.png)
+
 ### To pick both image && video:
 ```objective-c
-mediaEntry.mediaType = FSMediaTypeAll
+mediaPicker.mediaType = FSMediaTypeAll
 
 - (void)mediaPicker:(FSMediaPicker *)mediaPicker didFinishWithMediaInfo:(NSDictionary *)mediaInfo
     if (mediaInfo.mediaType == FSMediaTypeVideo) { // Or [mediaInfo[UIImagePickerControllerMediaType] isEqualToString:(NSString)kUTTypeMovie];
@@ -113,6 +117,8 @@ mediaEntry.mediaType = FSMediaTypeAll
     }
 }
 ```
+
+![fsmediapicker-type-all](https://cloud.githubusercontent.com/assets/5186464/6525058/bc2e6736-c43b-11e4-811c-5d3f3ba82e26.png)
 
 ### Some spices
 
@@ -159,8 +165,13 @@ This delegate method will be called on either when the UIActionSheet cancel or w
 
 #### 中文选项
 * 如果系统语言设置为中文并且Project下的Localization下包含`Chinese`，则选项中的文字显示为中文
-* 如果觉得文字不够高大上，在FSMediaPicker.m中开头的几个macro中设置对应文字. In English, change the expression of the option here in `FSMediaPicker.m` if you need.
+* 
+![localization](https://cloud.githubusercontent.com/assets/5186464/6525144/dba46592-c43c-11e4-8115-d4f17e382d43.png)
+![fsmediapicker-chinese](https://cloud.githubusercontent.com/assets/5186464/6525153/0de85dec-c43d-11e4-9b73-298bd2fa9b9a.png)
+
+* 如果觉得文字不够高大上，在FSMediaPicker.m中开头的几个macro中设置对应文字. 
 ```objective-c
+// change the option string here
 #define kTakePhotoString LocalizedString(@"Take photo")
 #define kSelectPhotoFromLibraryString LocalizedString(@"Select photo from photo library")
 #define kRecordVideoString LocalizedString(@"Record video")
