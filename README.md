@@ -191,7 +191,7 @@ This delegate method will be called on either when the UIActionSheet cancel or w
 ### set up
 
 * cocoapods: To run the example project, clone the repo, and run `pod install` from the Example directory first.
-* manually: drag all the classes and Resources under the `FSMediaPicker` group  
+* manually: drag `FSMediaPicker.h` and `FSMediaPicker.m` in FSMediaPicker-master/Pod/Classes to your project, make sure to check `copy items if needed` 
 
 ### then
 
