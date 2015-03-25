@@ -25,7 +25,8 @@ typedef enum {
 
 typedef enum {
     FSEditModeStandard = 0,
-    FSEditModeCircular = 1
+    FSEditModeCircular = 1,
+    FSEditModeNone     = 2
 } FSEditMode;
 
 UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
@@ -43,7 +44,7 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
 @interface FSMediaPicker : NSObject
 
 @property (assign, nonatomic) FSMediaType mediaType;
-@property (assign, nonatomic) FSEditMode editMode;
+@property (assign, nonatomic) FSEditMode  editMode;
 
 @property (assign, nonatomic) id<FSMediaPickerDelegate> delegate;
 
@@ -59,12 +60,12 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
 
 @interface NSDictionary (FSMediaPicker)
 
-@property (readonly, nonatomic) UIImage *originalImage;
-@property (readonly, nonatomic) UIImage *editedImage;
-@property (readonly, nonatomic) NSURL *mediaURL;
+@property (readonly, nonatomic) UIImage      *originalImage;
+@property (readonly, nonatomic) UIImage      *editedImage;
+@property (readonly, nonatomic) NSURL        *mediaURL;
 @property (readonly, nonatomic) NSDictionary *mediaMetadata;
-@property (readonly, nonatomic) FSMediaType mediaType;
-@property (readonly, nonatomic) UIImage *circularEditedImage;
+@property (readonly, nonatomic) FSMediaType  mediaType;
+@property (readonly, nonatomic) UIImage      *circularEditedImage;
 
 @end
 

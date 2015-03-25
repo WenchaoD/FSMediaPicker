@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FSMediaPicker"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "Use the smallest code to pick image and video"
  s.description       = "An integration of UIActionSheet, UIAlertController and UIImagePickerController which allows you to pick media(image/video) effortlessly, with cirlular crop supported, and written in Objective-C"
   s.homepage         = "https://github.com/f33chobits/FSMediaPicker"

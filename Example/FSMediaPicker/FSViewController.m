@@ -45,7 +45,11 @@
         [self.player play];
     } else {
         [self.imageButton setTitle:nil forState:UIControlStateNormal];
-        [self.imageButton setImage:mediaPicker.editMode == FSEditModeCircular? mediaInfo.circularEditedImage:mediaInfo.editedImage forState:UIControlStateNormal];
+        if (mediaPicker.editMode == FSEditModeNone) {
+            [self.imageButton setImage:mediaInfo.originalImage forState:UIControlStateNormal];
+        } else {
+            [self.imageButton setImage:mediaPicker.editMode == FSEditModeCircular? mediaInfo.circularEditedImage:mediaInfo.editedImage forState:UIControlStateNormal];
+        }
     }
 }
 

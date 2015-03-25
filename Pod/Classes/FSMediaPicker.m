@@ -11,8 +11,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <objc/runtime.h>
 
-#define kIsIPad [[[UIDevice currentDevice] model] hasPrefix:@"iPad"]
-
 #define LocalizedString(key) \
 NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], nil)
 
@@ -155,9 +153,11 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
             position = 80;
         }
         
+        BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+        
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
         
-        CGFloat diameter = kIsIPad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
+        CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
 
         UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:
                                CGRectMake(0.0f, position, diameter, diameter)];
@@ -165,7 +165,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         [circleLayer setPath:[circlePath CGPath]];
         [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
         
-        CGFloat bottomBarHeight = kIsIPad ? 51 : 72;
+        CGFloat bottomBarHeight = isIpad ? 51 : 72;
         
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
         [path appendPath:circlePath];
@@ -180,7 +180,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         [viewController.view.layer addSublayer:fillLayer];
         
         
-        if (!kIsIPad) {
+        if (!isIpad) {
             UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
             [moveLabel setText:@"Move and Scale"];
             [moveLabel setTextAlignment:NSTextAlignmentCenter];
@@ -344,7 +344,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-        imagePicker.allowsEditing = YES;
+        imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
@@ -358,7 +358,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-        imagePicker.allowsEditing = YES;
+        imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
@@ -372,7 +372,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-        imagePicker.allowsEditing = YES;
+        imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         imagePicker.mediaTypes = @[(NSString *)kUTTypeMovie];
@@ -386,7 +386,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *imagePicker = [UIImagePickerController new];
-        imagePicker.allowsEditing = YES;
+        imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.mediaTypes = @[(NSString *)kUTTypeMovie];
