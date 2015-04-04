@@ -137,7 +137,7 @@ mediaPicker.editMode = FSEditModeCircular; // defualt is FSEditModeStandard
 }
 ```
 
-* The `mediaInfo` NSDictionary contains both the `editedImage` and the `circularEditedImage` no matter what the `editMode` is. The Reason for this setting it that some app just displays the circularImage but needs to save the rectangle image on device or the server, or display the circular image in other ways, such as add mask layer, or setting cornerRadius
+* The `mediaInfo` NSDictionary contains both the `editedImage` and the `circularEditedImage` no matter what the `editMode` is. The reason for this setting it that some apps just display the circularImage but needs to save the rectangle image on device or the server, or some apps prefer to display the circular image in other ways, such as adding mask layer, or setting cornerRadius
 
 ### Customized setting of UIImagePickerController:
 
