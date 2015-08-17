@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <objc/runtime.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define LocalizedString(key) \
 NSLocalizedStringWithDefaultValue(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], key, nil)
@@ -19,6 +20,7 @@ NSLocalizedStringWithDefaultValue(key, @"FSMediaPicker", [NSBundle bundleWithPat
 #define kRecordVideoString LocalizedString(@"Record video")
 #define kSelectVideoFromLibraryString LocalizedString(@"Select video from photo library")
 #define kCancelString LocalizedString(@"Cancel")
+#define kNoCameraAuthorizationString @"您当前没有开启相机权限，请到\"设置\"-\"隐私\"-\"相机\"中修改"
 
 NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerControllerCircularEditedImage;";
 
@@ -343,6 +345,16 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 - (void)takePhotoFromCamera
 {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        NSString *mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:kNoCameraAuthorizationString delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
+        
         UIImagePickerController *imagePicker = [UIImagePickerController new];
         imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
