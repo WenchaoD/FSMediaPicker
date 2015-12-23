@@ -12,7 +12,7 @@
 #import <objc/runtime.h>
 
 #define LocalizedString(key) \
-NSLocalizedStringWithDefaultValue(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], key, nil)
+NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], nil)
 
 #define kTakePhotoString LocalizedString(@"Take photo")
 #define kSelectPhotoFromLibraryString LocalizedString(@"Select photo from photo library")
@@ -28,7 +28,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 - (UIViewController *)currentVisibleController;
 
 - (void)delegatePerformFinishWithMediaInfo:(NSDictionary *)mediaInfo;
-- (void)delegatePerformWillPresentImagePicker:(UIImagePickerController *)imagePicker;
+- (void)delegatePerformWillPresentImagePicker:(FSImagePickerController *)imagePicker;
 - (void)delegatePerformCancel;
 
 - (void)showAlertController:(UIView *)view;
@@ -122,15 +122,15 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
     }
 }
 
-#pragma mark - UIImagePickerController Delegate
+#pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)imagePickerController:(FSImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     [self delegatePerformFinishWithMediaInfo:info];
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+- (void)imagePickerControllerDidCancel:(FSImagePickerController *)picker
 {
     [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     [self delegatePerformCancel];
@@ -232,7 +232,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
     }
 }
 
-- (void)delegatePerformWillPresentImagePicker:(UIImagePickerController *)imagePicker
+- (void)delegatePerformWillPresentImagePicker:(FSImagePickerController *)imagePicker
 {
     if (_willPresentImagePickerBlock) {
         _willPresentImagePickerBlock(self,imagePicker);
@@ -342,8 +342,8 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 
 - (void)takePhotoFromCamera
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController *imagePicker = [UIImagePickerController new];
+    if ([FSImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        FSImagePickerController *imagePicker = [FSImagePickerController new];
         imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -356,8 +356,8 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 
 - (void)takePhotoFromPhotoLibrary
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        UIImagePickerController *imagePicker = [UIImagePickerController new];
+    if ([FSImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        FSImagePickerController *imagePicker = [FSImagePickerController new];
         imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -370,8 +370,8 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 
 - (void)takeVideoFromCamera
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController *imagePicker = [UIImagePickerController new];
+    if ([FSImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        FSImagePickerController *imagePicker = [FSImagePickerController new];
         imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -384,8 +384,8 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 
 - (void)takeVideoFromPhotoLibrary
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        UIImagePickerController *imagePicker = [UIImagePickerController new];
+    if ([FSImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        FSImagePickerController *imagePicker = [FSImagePickerController new];
         imagePicker.allowsEditing = _editMode != FSEditModeNone;
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -537,7 +537,7 @@ const char * mediaPickerKey;
 
 @end
 
-@implementation UIImagePickerController (FSMediaPicker)
+@implementation FSImagePickerController (FSMediaPicker)
 
 - (void)setMediaPicker:(FSMediaPicker *)mediaPicker
 {
