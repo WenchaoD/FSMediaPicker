@@ -52,6 +52,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         _recordVideoString = kRecordVideoString;
         _selectVideoString = kSelectVideoFromLibraryString;
         _cancelString = kCancelString;
+        _instructionString = @"Move and Scale";
     }
     return self;
 }
@@ -193,7 +194,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         
         if (!isIpad) {
             UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
-            [moveLabel setText:@"Move and Scale"];
+            [moveLabel setText:_instructionString];
             [moveLabel setTextAlignment:NSTextAlignmentCenter];
             [moveLabel setTextColor:[UIColor whiteColor]];
             [viewController.view addSubview:moveLabel];
@@ -284,7 +285,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         }
         case FSMediaTypeAll:
         {
-            [actionSheet addButtonWithTitle:kTakePhotoString];
+            [actionSheet addButtonWithTitle:_takePhotoString];
             [actionSheet addButtonWithTitle:_selectPhotoSring];
             [actionSheet addButtonWithTitle:_recordVideoString];
             [actionSheet addButtonWithTitle:_selectVideoString];
@@ -306,7 +307,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
     switch (self.mediaType) {
         case FSMediaTypePhoto:
         {
-            [alertController addAction:[UIAlertAction actionWithTitle:kTakePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_takePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromCamera];
             }]];
             [alertController addAction:[UIAlertAction actionWithTitle:_selectPhotoSring style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -326,7 +327,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         }
         case FSMediaTypeAll:
         {
-            [alertController addAction:[UIAlertAction actionWithTitle:kTakePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_takePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromCamera];
             }]];
             [alertController addAction:[UIAlertAction actionWithTitle:_selectPhotoSring style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
