@@ -45,6 +45,17 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
 
 #pragma mark - Life Cycle
 
+- (instancetype)init{
+    if (self = [super init]) {
+        _takePhotoString = kTakePhotoString;
+        _selectPhotoSring = kSelectPhotoFromLibraryString;
+        _recordVideoString = kRecordVideoString;
+        _selectVideoString = kSelectVideoFromLibraryString;
+        _cancelString = kCancelString;
+    }
+    return self;
+}
+
 - (instancetype)initWithDelegate:(id<FSMediaPickerDelegate>)delegate
 {
     self = [super init];
@@ -257,27 +268,27 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
     switch (self.mediaType) {
         case FSMediaTypePhoto:
         {
-            [actionSheet addButtonWithTitle:kTakePhotoString];
-            [actionSheet addButtonWithTitle:kSelectPhotoFromLibraryString];
-            [actionSheet addButtonWithTitle:kCancelString];
+            [actionSheet addButtonWithTitle:_takePhotoString];
+            [actionSheet addButtonWithTitle:_selectPhotoSring];
+            [actionSheet addButtonWithTitle:_cancelString];
             actionSheet.cancelButtonIndex = 2;
             break;
         }
         case FSMediaTypeVideo:
         {
-            [actionSheet addButtonWithTitle:kRecordVideoString];
-            [actionSheet addButtonWithTitle:kSelectVideoFromLibraryString];
-            [actionSheet addButtonWithTitle:kCancelString];
+            [actionSheet addButtonWithTitle:_recordVideoString];
+            [actionSheet addButtonWithTitle:_selectVideoString];
+            [actionSheet addButtonWithTitle:_cancelString];
             actionSheet.cancelButtonIndex = 2;
             break;
         }
         case FSMediaTypeAll:
         {
             [actionSheet addButtonWithTitle:kTakePhotoString];
-            [actionSheet addButtonWithTitle:kSelectPhotoFromLibraryString];
-            [actionSheet addButtonWithTitle:kRecordVideoString];
-            [actionSheet addButtonWithTitle:kSelectVideoFromLibraryString];
-            [actionSheet addButtonWithTitle:kCancelString];
+            [actionSheet addButtonWithTitle:_selectPhotoSring];
+            [actionSheet addButtonWithTitle:_recordVideoString];
+            [actionSheet addButtonWithTitle:_selectVideoString];
+            [actionSheet addButtonWithTitle:_cancelString];
             actionSheet.cancelButtonIndex = 4;
             break;
         }
@@ -298,17 +309,17 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
             [alertController addAction:[UIAlertAction actionWithTitle:kTakePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromCamera];
             }]];
-            [alertController addAction:[UIAlertAction actionWithTitle:kSelectPhotoFromLibraryString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_selectPhotoSring style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromPhotoLibrary];
             }]];
             break;
         }
         case FSMediaTypeVideo:
         {
-            [alertController addAction:[UIAlertAction actionWithTitle:kRecordVideoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_recordVideoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takeVideoFromCamera];
             }]];
-            [alertController addAction:[UIAlertAction actionWithTitle:kSelectVideoFromLibraryString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_selectVideoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takeVideoFromPhotoLibrary];
             }]];
             break;
@@ -318,13 +329,13 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
             [alertController addAction:[UIAlertAction actionWithTitle:kTakePhotoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromCamera];
             }]];
-            [alertController addAction:[UIAlertAction actionWithTitle:kSelectPhotoFromLibraryString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_selectPhotoSring style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takePhotoFromPhotoLibrary];
             }]];
-            [alertController addAction:[UIAlertAction actionWithTitle:kRecordVideoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_recordVideoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takeVideoFromCamera];
             }]];
-            [alertController addAction:[UIAlertAction actionWithTitle:kSelectVideoFromLibraryString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:_selectVideoString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self takeVideoFromPhotoLibrary];
             }]];
             break;
@@ -332,7 +343,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         default:
             break;
     }
-    [alertController addAction:[UIAlertAction actionWithTitle:kCancelString style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:_cancelString style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         [self delegatePerformCancel];
     }]];
     alertController.popoverPresentationController.sourceView = view;

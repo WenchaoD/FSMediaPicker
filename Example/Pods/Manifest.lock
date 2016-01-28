@@ -1,5 +1,5 @@
 PODS:
-  - FSMediaPicker (0.1.0)
+  - FSMediaPicker (0.0.2)
 
 DEPENDENCIES:
   - FSMediaPicker (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FSMediaPicker: 2fd02830e128340fe5947ab09f3d20c0224a76bb
+  FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0
