@@ -193,7 +193,8 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         
         
         if (!isIpad) {
-            UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 320, 50)];
+            CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
+            UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, screenWidth, 50)];
             [moveLabel setText:_instructionString];
             [moveLabel setTextAlignment:NSTextAlignmentCenter];
             [moveLabel setTextColor:[UIColor whiteColor]];
