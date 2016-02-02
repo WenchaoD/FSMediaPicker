@@ -166,18 +166,18 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         }
         
         BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-        
+        CGFloat bottomBarHeight = isIpad ? 51 : 72;
         CAShapeLayer *circleLayer = [CAShapeLayer layer];
         
         CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
-
+        position = (screenHeight - bottomBarHeight - diameter) / 2.0;
         UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:
-                               CGRectMake(0.0f, position, diameter, diameter)];
+                                    CGRectMake(0.0f, position, diameter, diameter)];
         [circlePath setUsesEvenOddFillRule:YES];
         [circleLayer setPath:[circlePath CGPath]];
         [circleLayer setFillColor:[[UIColor clearColor] CGColor]];
         
-        CGFloat bottomBarHeight = isIpad ? 51 : 72;
+        
         
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, diameter, screenHeight - bottomBarHeight) cornerRadius:0];
         [path appendPath:circlePath];
