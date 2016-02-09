@@ -12,7 +12,7 @@
 #import <objc/runtime.h>
 
 #define LocalizedString(key) \
-NSLocalizedStringWithDefaultValue(key, @"FSMediaPicker", [NSBundle bundleWithPath:[[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"FSMediaPicker.bundle"]], key, nil)
+NSLocalizedStringFromTableInBundle(key, @"FSMediaPicker", [[NSBundle alloc] initWithURL: [[NSBundle bundleForClass:self.class].resourceURL URLByAppendingPathComponent:@"FSMediaPicker.bundle"]], nil)
 
 #define kTakePhotoString LocalizedString(@"Take photo")
 #define kSelectPhotoFromLibraryString LocalizedString(@"Select photo from photo library")
