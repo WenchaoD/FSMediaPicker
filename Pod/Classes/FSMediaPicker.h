@@ -46,7 +46,7 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
 @property (assign, nonatomic) FSMediaType mediaType;
 @property (assign, nonatomic) FSEditMode  editMode;
 
-@property (assign, nonatomic) id<FSMediaPickerDelegate> delegate;
+@property (weak, nonatomic) id<FSMediaPickerDelegate> delegate;
 
 @property (copy, nonatomic) void(^willPresentImagePickerBlock)(FSMediaPicker *mediaPicker, UIImagePickerController *imagePicker);
 @property (copy, nonatomic) void(^finishBlock)(FSMediaPicker *mediaPicker, NSDictionary *mediaInfo);
