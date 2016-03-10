@@ -52,6 +52,12 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
 @property (copy, nonatomic) void(^finishBlock)(FSMediaPicker *mediaPicker, NSDictionary *mediaInfo);
 @property (copy, nonatomic) void(^cancelBlock)(FSMediaPicker *mediaPicker);
 
+@property (nonatomic) NSString * takePhotoString;
+@property (nonatomic) NSString * selectPhotoFromLibraryString;
+@property (nonatomic) NSString * recordVideoString;
+@property (nonatomic) NSString * selectVideoFromLibraryString;
+@property (nonatomic) NSString * cancelString;
+
 - (instancetype)initWithDelegate:(id<FSMediaPickerDelegate>)delegate;
 
 - (void)showFromView:(UIView *)view;
