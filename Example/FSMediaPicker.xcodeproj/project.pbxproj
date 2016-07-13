@@ -254,6 +254,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Wenchao Ding";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = M56A72A6G5;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -539,10 +542,13 @@
 			baseConfigurationReference = EE1A55E68DDC65807A802110 /* Pods-FSMediaPicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSMediaPicker/FSMediaPicker-Prefix.pch";
 				INFOPLIST_FILE = "FSMediaPicker/FSMediaPicker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -552,10 +558,13 @@
 			baseConfigurationReference = 773A159399CAE34A44F29E64 /* Pods-FSMediaPicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FSMediaPicker/FSMediaPicker-Prefix.pch";
 				INFOPLIST_FILE = "FSMediaPicker/FSMediaPicker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -171,7 +171,7 @@ NSString const * UIImagePickerControllerCircularEditedImage = @" UIImagePickerCo
         
         CGFloat diameter = isIpad ? MAX(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height) : MIN(plCropOverlay.frame.size.width, plCropOverlay.frame.size.height);
         if (screenHeight == 736){
-            position = 162;
+            position = 162 + 8;
         }else{
             position = (screenHeight / 2.0) - (diameter / 2.0);
         }
