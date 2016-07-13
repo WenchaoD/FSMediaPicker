@@ -79,7 +79,7 @@ UIKIT_EXTERN NSString const * UIImagePickerControllerCircularEditedImage;
 @interface UIImage (FSMediaPicker)
 
 - (UIImage *)circularImage;
-
+- (UIImage *)circularImageWithRect:(CGRect)rect;
 @end
 
 
